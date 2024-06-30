@@ -27,6 +27,15 @@ const config: Configuration & { devServer?: DevServerConfiguration } = {
         use: "babel-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.css\.ts$/,
+        use: [
+          "style-loader",
+          {
+            loader: "@vanilla-extract/webpack-plugin/loader",
+          },
+        ],
+      },
     ],
   },
   plugins: [
