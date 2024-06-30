@@ -10,11 +10,13 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import { Configuration } from "webpack";
 import { Configuration as DevServerConfiguration } from "webpack-dev-server";
 
+const ___dirname = path.resolve();
+
 const config: Configuration & { devServer?: DevServerConfiguration } = {
   mode: "development",
-  entry: "./src/index.tsx",
+  entry: path.join(___dirname, "src", "client", "index.tsx"),
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.join(___dirname, "dist"),
     filename: "bundle.js",
   },
   resolve: {
@@ -32,16 +34,25 @@ const config: Configuration & { devServer?: DevServerConfiguration } = {
         use: "babel-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.css\.ts$/,
+        use: [
+          "style-loader",
+          {
+            loader: "@vanilla-extract/webpack-plugin/loader",
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: path.join(___dirname, "public", "index.html"),
     }),
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, "public"),
+      directory: path.join(___dirname, "public"),
     },
     compress: true,
     port: 3000,
@@ -49,6 +60,7 @@ const config: Configuration & { devServer?: DevServerConfiguration } = {
 };
 
 export default config;
+
 
 "@ | Out-File -FilePath webpack.config.ts -Encoding utf8
 

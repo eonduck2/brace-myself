@@ -2,6 +2,7 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { Configuration } from "webpack";
 import { Configuration as DevServerConfiguration } from "webpack-dev-server";
+import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
 
 const ___dirname = path.resolve();
 
@@ -35,6 +36,7 @@ const config: Configuration & { devServer?: DevServerConfiguration } = {
             loader: "@vanilla-extract/webpack-plugin/loader",
           },
         ],
+        include: path.join(___dirname, "src", "client", "components"),
       },
     ],
   },
@@ -42,6 +44,7 @@ const config: Configuration & { devServer?: DevServerConfiguration } = {
     new HtmlWebpackPlugin({
       template: path.join(___dirname, "public", "index.html"),
     }),
+    new VanillaExtractPlugin(),
   ],
   devServer: {
     static: {
