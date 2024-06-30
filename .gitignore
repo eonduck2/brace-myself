@@ -2,8 +2,8 @@ node_modules
 
 .git
 
-.babelrc
+# .babelrc
 
-webpack.config.ts
+# webpack.config.ts
 
-setup-scripts.ps1
+# setup-scripts.ps1
