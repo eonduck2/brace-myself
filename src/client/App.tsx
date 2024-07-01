@@ -1,12 +1,8 @@
 import React from "react";
-import HeaderButton from "./components/HeaderButton/HeaderButton";
+import HeaderButton from "./components/header/headerButton/HeaderButton";
 
 const App: React.FC = () => {
-  return (
-    <div>
-      <HeaderButton />
-    </div>
-  );
+  return <HeaderButton />;
 };
 
 export default App;
