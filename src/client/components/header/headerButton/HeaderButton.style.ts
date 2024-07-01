@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Button } from "@chakra-ui/react";
 
-const StyledHeaderButton = styled(Button)``;
+const StyledHeaderButton = styled;
 
 export default StyledHeaderButton;
 

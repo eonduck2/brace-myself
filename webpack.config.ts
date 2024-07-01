@@ -29,6 +29,10 @@ const config: Configuration & { devServer?: DevServerConfiguration } = {
         use: "babel-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
       // {
       //   test: /\.css\.ts$/,
       //   use: [
