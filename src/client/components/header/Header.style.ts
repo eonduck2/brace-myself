@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { StyledGrid } from "../container/Container.style";
 
-const StyledHeader = styled(StyledGrid)`
+const StyledHeader = styled.header`
+  display: grid;
   grid-template-columns: repeat(5, 1fr);
   place-items: center;
   width: 100%;
