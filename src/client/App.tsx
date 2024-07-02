@@ -1,9 +1,9 @@
 import React from "react";
-import HeaderButton from "./components/header/headerButton/HeaderButton";
+import Header from "./components/header/Header";
 import "../styles/input.css";
 
 const App: React.FC = () => {
-  return <HeaderButton />;
+  return <Header />;
 };
 
 export default App;
