@@ -15,7 +15,7 @@ const config: Configuration & { devServer?: DevServerConfiguration } = {
     filename: "bundle.js",
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".js", ".ts", ".jsx", ".tsx"],
   },
   module: {
     rules: [
@@ -27,6 +27,13 @@ const config: Configuration & { devServer?: DevServerConfiguration } = {
       {
         test: /\.jsx?$/,
         use: "babel-loader",
+        options: {
+          presets: [
+            "@babel/preset-env",
+            "@babel/preset-react",
+            "@babel/preset-typescript",
+          ],
+        },
         exclude: /node_modules/,
       },
       {
@@ -67,6 +74,7 @@ const config: Configuration & { devServer?: DevServerConfiguration } = {
     // }),
   ],
 
+  devtool: "source-map",
   devServer: {
     static: {
       directory: path.join(___dirname, "public"),
