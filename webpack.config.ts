@@ -2,6 +2,8 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { Configuration } from "webpack";
 import { Configuration as DevServerConfiguration } from "webpack-dev-server";
+// @ts-ignore
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 // import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
 // import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
@@ -25,14 +27,25 @@ const config: Configuration & { devServer?: DevServerConfiguration } = {
         exclude: /node_modules/,
       },
       {
-        test: /\.jsx?$/,
-        use: "babel-loader",
-        options: {
-          presets: [
-            "@babel/preset-env",
-            "@babel/preset-react",
-            "@babel/preset-typescript",
-          ],
+        test: /\.(js|jsx|ts|tsx)$/,
+        // test: /\.jsx?$/,
+        // use: "babel-loader",
+        // options: {
+        // presets: [
+        //   "@babel/preset-env",
+        //   "@babel/preset-react",
+        //   "@babel/preset-typescript",
+        // ],
+        // },
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-typescript",
+            ],
+          },
         },
         exclude: /node_modules/,
       },
@@ -68,6 +81,12 @@ const config: Configuration & { devServer?: DevServerConfiguration } = {
     new HtmlWebpackPlugin({
       template: path.join(___dirname, "public", "index.html"),
     }),
+
+    // new BundleAnalyzerPlugin({
+    //   analyzerMode: "static", // 'static'은 결과를 파일로 생성합니다. 'server'는 로컬 서버를 실행합니다.
+    //   openAnalyzer: true, // 번들 분석기 결과를 자동으로 엽니다.
+    //   reportFilename: "bundle-report.html", // 분석 결과 파일 이름
+    // }),
     // new VanillaExtractPlugin(),
     // new MiniCssExtractPlugin({
     //   filename: "[name].css",
