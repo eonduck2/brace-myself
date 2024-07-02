@@ -24,7 +24,6 @@ app.use(webpackHotMiddleware(compiler));
 app.use(express.static(path.join(___dirname, "public")));
 app.use(express.static(path.join(___dirname, "src")));
 
-// 모든 요청에 대해 index.html 반환
 app.get("/", (req, res) => {
   res.sendFile(path.join(___dirname, "public", "index.html"));
 });

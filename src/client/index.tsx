@@ -8,7 +8,7 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 
 // * 리액트 18 버전 이상 렌더링 방식
-createRoot(document.getElementById("root") as HTMLElement).render(
+createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
