@@ -1,6 +1,11 @@
 import React from "react";
-import "../header/headerButton/HeaderButton";
+import HeaderButton from "./headerButton/HeaderButton";
+import StyledHeader from "./Header.style";
 
 const Header = () => {
-  return;
+  return (
+    <StyledHeader>
+      <HeaderButton />
+    </StyledHeader>
+  );
 };
