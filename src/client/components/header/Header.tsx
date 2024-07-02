@@ -2,16 +2,14 @@ import React from "react";
 import HeaderButton from "./headerButton/HeaderButton";
 import StyledHeader from "./Header.style";
 import IHeader from "./Header.interface";
-import {
-  BasicContainer,
-  FlexContainer,
-  GridContainer,
-} from "../container/Container";
 
 const Header: React.FC<IHeader> = () => {
+  const buttonArray = [1, 2, 3, 4, 5];
   return (
     <StyledHeader className="bg-black">
-      <HeaderButton />
+      {buttonArray.map((index) => (
+        <HeaderButton key={index} />
+      ))}
     </StyledHeader>
   );
 };
