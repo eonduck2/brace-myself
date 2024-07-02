@@ -7,7 +7,7 @@ const BasicContainer: React.FC<IContainer> = ({ children }) => {
 };
 
 const FlexContainer: React.FC<IContainer> = ({ children }) => {
-  return <StyledFlex>{children}</StyledFlex>;
+  return <StyledFlex className="bg-red-700">{children}</StyledFlex>;
 };
 
 const GridContainer: React.FC<IContainer> = ({ children }) => {

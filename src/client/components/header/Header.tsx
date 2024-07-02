@@ -10,7 +10,7 @@ import {
 
 const Header: React.FC<IHeader> = () => {
   return (
-    <StyledHeader className="bg-slate-600 justify-center items-center">
+    <StyledHeader className="bg-slate-600 w-full h-full">
       <FlexContainer className="w-80">
         <HeaderButton />
       </FlexContainer>
