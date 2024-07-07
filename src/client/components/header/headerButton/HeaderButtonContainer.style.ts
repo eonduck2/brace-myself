@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { StyledFlex } from "../../container/Container.style";
 
 const StyledHeaderButtonContainer = styled(StyledFlex)`
-  width: 80%;
+  width: 100%;
   height: 80%;
   justify-content: center;
   align-items: center;
